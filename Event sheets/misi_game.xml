@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>misi_game</name>
+    <events>
+        <comment>Jika nyawa=4, maka set nyawa di set frame 3</comment>
+        <event-block sid="831454046010266">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="435714009607378" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="733955353331169" type="nyawa">
+                    <param id="0" name="Frame number">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika nyawa=3, maka set nyawa di set frame 2</comment>
+        <event-block sid="278530697243881">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="922578483058047" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="265984354006078" type="nyawa">
+                    <param id="0" name="Frame number">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika nyawa=2, maka set nyawa di set frame 1</comment>
+        <event-block sid="476550428396436">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="586712077507897" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="267299622881068" type="nyawa">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika nyawa=1, maka set nyawa di set frame 0</comment>
+        <event-block sid="363448556253300">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="971109222512508" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="407326228206045" type="nyawa">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika nyawa&lt;=0, maka memanggil fungsi misigagal, aktor hancur dan musik berhenti</comment>
+        <event-block sid="295416180428735">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="409971078182220" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="723196467413991" type="Function">
+                    <param id="0" name="Name">&quot;misigagal&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Destroy" sid="442163841756089" type="aktor" />
+                <action id="33" name="Stop all" sid="249569581513187" type="Audio" />
+            </actions>
+        </event-block>
+        <comment>Jika nyawa &gt; 4, maka nyawa di set 4</comment>
+        <event-block sid="478249190053175">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="388417230521119" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="722026737569079" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika aktor bertabrakan dengan bom maka nyawa berkurang satu kemudian bom hancur, muncul efek partikel merah dan memainkan sound oww</comment>
+        <event-block sid="461887612223425">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="292125290297471" type="aktor">
+                    <param id="0" name="Object">bolajarum</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="584381467151733" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="517631721507055" type="bolajarum" />
+                <action id="0" name="Spawn another object" sid="727295914194963" type="bolajarum">
+                    <param id="0" name="Object">par_merah</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Play" sid="810484921146328" type="Audio">
+                    <param id="0" name="Audio file">oww</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika aktor bertabrakan dengan duri, maka nyawa berkurang satu kemudian duri hancur, muncul efek bom dan memainkan sound bom</comment>
+        <event-block sid="969058099930748">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="494885830808359" type="aktor">
+                    <param id="0" name="Object">bom</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="719279881479286" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="455444729434692" type="bom" />
+                <action id="0" name="Spawn another object" sid="339555761386339" type="bom">
+                    <param id="0" name="Object">efekapi</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="236295641474467" type="efekapi">
+                    <param id="0" name="Degrees">random(360)</param>
+                </action>
+                <action id="0" name="Play" sid="341385395574693" type="Audio">
+                    <param id="0" name="Audio file">bom</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika aktor bertabrakan dengan garis_X maka nyawa di set 0</comment>
+        <event-block sid="109255737247777">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="725394157085915" type="aktor">
+                    <param id="0" name="Object">garis_X</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="424448644420328" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika aktor bertabrakan dengan tambah_nyawa maka nyawa ditambah 1, kemudian tambah_nyawa hancur dan muncul efek partikel merah dan memainkan sound nyawa</comment>
+        <event-block sid="876825852853949">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="778694893524175" type="aktor">
+                    <param id="0" name="Object">tambah_nyawa</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="560116746058110" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="119253748817487" type="tambah_nyawa" />
+                <action id="0" name="Spawn another object" sid="527283083394974" type="tambah_nyawa">
+                    <param id="0" name="Object">par_merah</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Play" sid="237127495681229" type="Audio">
+                    <param id="0" name="Audio file">nyawa</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika level 1</comment>
+        <event-block sid="227085023420245">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="269926900438074" type="System">
+                    <param id="0" name="Variable">Level</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Jika aktor bertabrakan dengan p_bawang, maka u_bawang diset frame 1, kemudian p_bawang hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="503878660582111">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="624636415832930" type="aktor">
+                            <param id="0" name="Object">p_bawang1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="340553179376577" type="u_bawang">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="474170441716215" type="p_bawang1" />
+                        <action id="-10" name="Add to" sid="852133725798242" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="316245734434257" type="p_bawang1">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="400211339590141" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_lengkuas1, maka u_lengkuas1 diset frame 1, kemudian p_lengkuas1 hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="123556103849003">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="599657641317366" type="aktor">
+                            <param id="0" name="Object">p_lengkuas1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="507197034915323" type="u_lengkuas2">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="251610270307880" type="p_lengkuas1" />
+                        <action id="-10" name="Add to" sid="887507887653866" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="496949983143324" type="p_lengkuas1">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="770778679151437" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_ayam1, maka u_ayam1 diset frame 1, kemudian p_ayam1 hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="461800948521772">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="179308355404981" type="aktor">
+                            <param id="0" name="Object">p_ayam1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="602910299293531" type="u_ayam">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="270727578635283" type="p_ayam1" />
+                        <action id="-10" name="Add to" sid="373986964044492" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="549685253275844" type="p_ayam1">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="421967800321701" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_lada1, maka u_lada1 diset frame 1, kemudian p_lada1 hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="965542832614176">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="803963133132221" type="aktor">
+                            <param id="0" name="Object">p_lada1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="876338924353903" type="u_lada1">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="997035030523388" type="p_lada1" />
+                        <action id="-10" name="Add to" sid="390521937127771" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="679038225448232" type="p_lada1">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="134170138442796" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_sotokemiri, maka u_sotokemiri diset frame 1, kemudian p_sotokemiri hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="630048790850942">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="483992917339425" type="aktor">
+                            <param id="0" name="Object">p_sotokemiri</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="330914729800505" type="u_sotokemiri">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="329066527359034" type="p_sotokemiri" />
+                        <action id="-10" name="Add to" sid="341782776037841" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="668467815596444" type="p_sotokemiri">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="726885180132883" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Jika level 2</comment>
+        <event-block sid="640734430942090">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="579513150512193" type="System">
+                    <param id="0" name="Variable">Level</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Jika aktor bertabrakan dengan p_telur, maka u_telur diset frame 1, kemudian p_telur hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="324322703025750">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="683389050524392" type="aktor">
+                            <param id="0" name="Object">p_telur</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="826943140886051" type="u_telur">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="877098817957392" type="p_telur" />
+                        <action id="-10" name="Add to" sid="763868694931525" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="950446507872803" type="p_telur">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="383061121221763" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_kecap, maka u_kecap diset frame 1, kemudian p_kecap hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="986250557217347">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="786008007492952" type="aktor">
+                            <param id="0" name="Object">p_kecap</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="938453291433475" type="u_kecap2">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="111905508940301" type="p_kecap" />
+                        <action id="-10" name="Add to" sid="669373666802265" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="769580412561872" type="p_kecap">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="201223243190527" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_ayam2, maka u_ayam2 diset frame 1, kemudian p_ayam2 hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="284995165294108">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="893900333739779" type="aktor">
+                            <param id="0" name="Object">p_ayam2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="306759411887175" type="u_ayam2">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="927360535276928" type="p_ayam2" />
+                        <action id="-10" name="Add to" sid="352367431301042" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="975033054874826" type="u_ayam2">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="388435713839567" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_lada2, maka u_lada2 diset frame 1, kemudian p_lada2 hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="156873235167902">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="724647698598534" type="aktor">
+                            <param id="0" name="Object">p_lada2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="615262125435833" type="u_lada2">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="612303868357679" type="p_lada2" />
+                        <action id="-10" name="Add to" sid="889993893278105" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="503178454951288" type="p_lada2">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="809260451720571" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_nasigandul, maka u_nasigandul diset frame 1, kemudian p_nadigandul hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="785670601587864">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="924847638620469" type="aktor">
+                            <param id="0" name="Object">p_nasigandul</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="747669602498318" type="u_nasigandul">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="453982119204107" type="p_nasigandul" />
+                        <action id="-10" name="Add to" sid="456591421830666" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="447517679007954" type="p_nasigandul">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="201480081091973" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Jika level 3</comment>
+        <event-block sid="693279513393407">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="596615209087511" type="System">
+                    <param id="0" name="Variable">Level</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Jika aktor bertabrakan dengan p_ikan, maka u_ikan diset frame 1, kemudian p_ikan hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin dan kayu hancur</comment>
+                <event-block sid="124766388174941">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="220997207071585" type="aktor">
+                            <param id="0" name="Object">p_ikan</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="309937947275088" type="u_ikan">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="132373006517002" type="p_ikan" />
+                        <action id="-10" name="Add to" sid="841058071847521" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="450346733882419" type="p_ikan">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="727323078595969" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="480154727652509" type="kayu" />
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_lada3, maka u_lada3 diset frame 1, kemudian p_lada3 hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="406205776045697">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="676913773954888" type="aktor">
+                            <param id="0" name="Object">p_lada3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="158467412732288" type="u_lada3">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="939826406851295" type="p_lada3" />
+                        <action id="-10" name="Add to" sid="380009829305403" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="735380112802895" type="p_lada3">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="561453830667384" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_lengkuas2, maka u_lengkuas2 diset frame 1, kemudian p_lengkuas hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="592530798596381">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="964496961464721" type="aktor">
+                            <param id="0" name="Object">p_lengkuas2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="872558232141806" type="u_lengkuas1">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="665365323110854" type="p_lengkuas2" />
+                        <action id="-10" name="Add to" sid="278045648772697" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="480547972705685" type="p_lengkuas2">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="584687665590444" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_kecap1, maka u_kecap1 diset frame 1, kemudian p_kecap1 hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin dan kayu2 hancur</comment>
+                <event-block sid="705640242476030">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="518227963682865" type="aktor">
+                            <param id="0" name="Object">p_kecap1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="305118590331145" type="u_kecap">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="570623614805482" type="p_kecap1" />
+                        <action id="-10" name="Add to" sid="441876099583431" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="679319153649463" type="p_kecap1">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="534648345748502" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="954438275024160" type="kayu2" />
+                    </actions>
+                </event-block>
+                <comment>Jika aktor bertabrakan dengan p_kepalamanyung, maka u_kepalamanyung diset frame 1, kemudian p_kepalamanyung hancur, poin_player ditambah 20 dan muncul efek par menu dan memainkan sound poin</comment>
+                <event-block sid="297054861240982">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="963007079006730" type="aktor">
+                            <param id="0" name="Object">p_kepalamanyung</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="779614623617899" type="u_tha">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="370690891855409" type="p_kepalamanyung" />
+                        <action id="-10" name="Add to" sid="439598602005627" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="645933123021600" type="p_kepalamanyung">
+                            <param id="0" name="Object">par_menu</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="217912922540372" type="Audio">
+                            <param id="0" name="Audio file">poin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>level3</name>
+    <events>
+        <include>misi_game</include>
+        <include>kontrol</include>
+        <include>functions</include>
+        <comment>Saat layout dijalankan, maka Level diset 3 , scrolto diaktifkan, kemudian memanggil fungsi awal dan melakukan preload sound dan memainkan sound level3</comment>
+        <event-block sid="399597707202742">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="751858653575062" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="675157202650527" type="System">
+                    <param id="0" name="Variable">Level</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="875776881931847" type="aktor">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="0" name="Call function" sid="975067887926490" type="Function">
+                    <param id="0" name="Name">&quot;awal&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="4" name="Preload" sid="308821972702524" type="Audio">
+                    <param id="0" name="Audio file">level3</param>
+                </action>
+                <action id="0" name="Play" sid="594566173735216" type="Audio">
+                    <param id="0" name="Audio file">level3</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;level3&quot;</param>
+                </action>
+                <action id="4" name="Preload" sid="745732798663455" type="Audio">
+                    <param id="0" name="Audio file">bom</param>
+                </action>
+                <action id="4" name="Preload" sid="654710314265344" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                </action>
+                <action id="4" name="Preload" sid="621616741740011" type="Audio">
+                    <param id="0" name="Audio file">poin</param>
+                </action>
+                <action id="4" name="Preload" sid="714772128090515" type="Audio">
+                    <param id="0" name="Audio file">up</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="210641944939104">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="977240180098783" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="367292421434253" type="camera">
+                    <param id="0" name="X">lerp(Self.X, player.X, 0.02)</param>
+                    <param id="1" name="Y">lerp(Self.Y, player.Y, 0.02)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika T_pause ditekan, maka memanggil fungsi pause dan memause sound level3</comment>
+        <event-block sid="300732833602395">
+            <conditions>
+                <condition id="3" name="On touched object" sid="995157194452789" type="Touch">
+                    <param id="0" name="Object">T_pause</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="702001993573921" type="Function">
+                    <param id="0" name="Name">&quot;pause&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="22" name="Set paused" sid="440239641900591" type="Audio">
+                    <param id="0" name="Tag">&quot;level3&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika T_resume ditekan, maka memanggil fungsi resume dan meresume sound level3</comment>
+        <event-block sid="437524519922719">
+            <conditions>
+                <condition id="3" name="On touched object" sid="647175385699469" type="Touch">
+                    <param id="0" name="Object">T_resume</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="640044753105824" type="Function">
+                    <param id="0" name="Name">&quot;resume&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="22" name="Set paused" sid="894178303817605" type="Audio">
+                    <param id="0" name="Tag">&quot;level3&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika aktor berada di peti harta</comment>
+        <event-block sid="668873067698328">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="654836521495427" type="aktor">
+                    <param id="0" name="Object">peti_harta</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Jika poin_aksara =160 , maka mucul tombol kunci</comment>
+                <event-block sid="836477842412410">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="807231655660489" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">100</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="203790904201249" type="System">
+                            <param id="0" name="Variable">kunci</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="995316774054197" type="T_kunci">
+                            <param id="0" name="X">ViewportRight(Self.LayerNumber) -70</param>
+                            <param id="1" name="Y">ViewportBottom(Self.LayerNumber) - 250</param>
+                        </action>
+                        <action behavior="Anchor" id="0" name="Set enabled" sid="406479249432901" type="T_kunci">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Jika T_kunci ditekan, maka sound level3 berhenti dan memanggil fungsi misiberhasil</comment>
+        <event-block sid="973686256536732">
+            <conditions>
+                <condition id="3" name="On touched object" sid="862721897523003" type="Touch">
+                    <param id="0" name="Object">T_kunci</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="377271058868845" type="Audio">
+                    <param id="0" name="Tag">&quot;level3&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="554821197925639" type="Function">
+                    <param id="0" name="Name">&quot;misiberhasil&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika T_nextlv ditekan, maka memaikan sound klik dan menuju layout selesai, timescale diset 1 dan touch =1</comment>
+        <event-block sid="281164669918418">
+            <conditions>
+                <condition id="3" name="On touched object" sid="864880580646141" type="Touch">
+                    <param id="0" name="Object">T_nextlv</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="647332521924533" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="668640495501259" type="System">
+                    <param id="0" name="Layout">selesai</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="356591183053531" type="System">
+                    <param id="0" name="Time scale">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="529787322847600" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika aktor bertabrakan dengan kunci maka, muncul partikel kunci kemudian kunci hancur dan kunci diset 1 dan memainkan sound poin</comment>
+        <event-block sid="414672754194649">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="602644913639757" type="aktor">
+                    <param id="0" name="Object">kunci</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="912241416787908" type="kunci">
+                    <param id="0" name="Object">par_kunci</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="173574054454158" type="kunci" />
+                <action id="-9" name="Set value" sid="376139690561308" type="System">
+                    <param id="0" name="Variable">kunci</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Play" sid="489642920433787" type="Audio">
+                    <param id="0" name="Audio file">poin</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>setiap 2 detik dan aktor berada pada batas_m_ayam maka, muncul api dari M_ayam</comment>
+        <event-block sid="196452474187036">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="310405364230646" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="284765079740848" type="aktor">
+                    <param id="0" name="Object">batas_m_ayam</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="728369023136743" type="M_ayam">
+                    <param id="0" name="Object">api</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="545478565103762" type="api">
+                    <param id="0" name="Angle">180</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="367647256958993" type="api">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika api bertabrakan dengan aktor maka, nyawa dikurangi 1 dan muncul efekapi dan memainkan sound bom</comment>
+        <event-block sid="837623670630147">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="127253222185433" type="api">
+                    <param id="0" name="Object">aktor</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="996792350534466" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="930921856523956" type="aktor">
+                    <param id="0" name="Object">efekapi</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="612569496399921" type="efekapi">
+                    <param id="0" name="Degrees">random(360)</param>
+                </action>
+                <action id="-9" name="Destroy" sid="479330323488991" type="api" />
+                <action id="0" name="Play" sid="692752625903468" type="Audio">
+                    <param id="0" name="Audio file">bom</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika aktor bertabrakan dengan M_ayam, player jatuh, dan loncat=1 maka, mucul efek partikel buaya dan P_ayam dikurangi 1</comment>
+        <event-block sid="140037260642303">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="273227430136233" type="aktor">
+                    <param id="0" name="Object">M_ayam</param>
+                </condition>
+                <condition behavior="Platform" id="4" name="Is falling" sid="691387301342670" type="player" />
+                <condition id="-14" name="Compare variable" sid="552145844598320" type="System">
+                    <param id="0" name="Variable">loncat</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="769937792485909" type="M_ayam">
+                    <param id="0" name="Object">par_ayam</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="671025328218624" type="M_ayam">
+                    <param id="0" name="Instance variable">P_ayam</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika P_buaya kurang dari atau sama dengan 0, maka ayam hancur dan kayu3 hancur</comment>
+        <event-block sid="512968747146417">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="607794443543538" type="M_ayam">
+                    <param id="0" name="Instance variable">P_ayam</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="821515897246054" type="M_ayam" />
+                <action id="-9" name="Destroy" sid="191117984920829" type="kayu3" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

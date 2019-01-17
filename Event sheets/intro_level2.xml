@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>intro_level2</name>
+    <events>
+        <comment>Saat layout dijalankan text intro di set frame 1 dan diposisikan ke tengah, 7 detik kemudian menuju ke layout level2</comment>
+        <event-block sid="131737389898685">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="302429515815428" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="531518834325232" type="text_intro">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="216871763206715" type="text_intro">
+                    <param id="0" name="X">(ViewportLeft(Self.LayerNumber) + ViewportRight(Self.LayerNumber)) / 2</param>
+                    <param id="1" name="Y">(ViewportTop(Self.LayerNumber) + ViewportBottom(Self.LayerNumber)) / 2</param>
+                </action>
+                <action id="-16" name="Wait" sid="471119953810558" type="System">
+                    <param id="0" name="Seconds">7</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="368794506643513" type="System">
+                    <param id="0" name="Layout">level2</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

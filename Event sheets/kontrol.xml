@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>kontrol</name>
+    <events>
+        <comment>Jika player loncat, maka aktor diset animasi loncat.</comment>
+        <event-block sid="475908769165096">
+            <conditions>
+                <condition behavior="Platform" id="3" name="Is jumping" sid="473851358795054" type="player" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="637689109142746" type="aktor">
+                    <param id="0" name="Animation">&quot;loncat&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika player jatuh,maka aktor diset animasi jalan.</comment>
+        <event-block sid="552680912911414">
+            <conditions>
+                <condition behavior="Platform" id="4" name="Is falling" sid="248924493955944" type="player" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="979625068864028" type="aktor">
+                    <param id="0" name="Animation">&quot;lari&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika touch=1, maka</comment>
+        <event-block any="1" sid="296843540301040">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="576709592738783" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Saat ditekan tombol kiri keyboard atau tombol kiri, maka aktor berbalik dan player bergerak ke kiri.</comment>
+                <event-block any="1" sid="471042620842634">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="584019967696205" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
+                        </condition>
+                        <condition id="4" name="Is touching object" sid="337089452248516" type="Touch">
+                            <param id="0" name="Object">T_kiri</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="192441424221327" type="aktor">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="488416044871321" type="player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Saat ditekan tombol kanan keyboard atau tombol kanan, maka aktor tidak berbalik dan player bergerak ke kanan.</comment>
+                <event-block any="1" sid="346903427895184">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="512049309584096" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                        <condition id="4" name="Is touching object" sid="128563959077841" type="Touch">
+                            <param id="0" name="Object">T_kanan</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="672623449130168" type="aktor">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="452559532232515" type="player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Jika player berada di pijakan dan touch=1, maka loncat diset 0.</comment>
+        <event-block sid="159144305813204">
+            <conditions>
+                <condition behavior="Platform" id="2" name="Is on floor" sid="742715537913610" type="player" />
+                <condition id="-14" name="Compare variable" sid="697771580434406" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="135326776950514" type="System">
+                    <param id="0" name="Variable">loncat</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Saat ditekan tombol kanan keyboard atau tombol kanan, maka aktor tidak berbalik, player bergerak ke kanan dan animasi diset lari</comment>
+                <event-block any="1" sid="421816503159677">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="128960121655342" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                        <condition id="4" name="Is touching object" sid="691242325431543" type="Touch">
+                            <param id="0" name="Object">T_kanan</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="461652497263964" type="aktor">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="679297856873374" type="player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="611718215816614" type="aktor">
+                            <param id="0" name="Animation">&quot;lari&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Saat ditekan tombol kiri keyboard atau tombol kiri, maka aktor berbalik, player bergerak ke kiri dan animasi diset lari</comment>
+                <event-block any="1" sid="873346372779563">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="819937510186629" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
+                        </condition>
+                        <condition id="4" name="Is touching object" sid="330940870623584" type="Touch">
+                            <param id="0" name="Object">T_kiri</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="478306140082249" type="aktor">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="605061766089770" type="player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="762724173476672" type="aktor">
+                            <param id="0" name="Animation">&quot;lari&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Saat ditekan tombol atas keyboard atau tombol atas, maka loncat diset 1, animasi aktor diset ke loncat, player loncat, dan memainkan sound up</comment>
+                <event-block any="1" sid="205952500972750">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="385008296215242" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                        <condition id="4" name="Is touching object" sid="911822509700769" type="Touch">
+                            <param id="0" name="Object">T_atas</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="449950308158544" type="System">
+                            <param id="0" name="Variable">loncat</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="427755257474307" type="aktor">
+                            <param id="0" name="Animation">&quot;loncat&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="859777598321534" type="player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action id="0" name="Play" sid="150633876654017" type="Audio">
+                            <param id="0" name="Audio file">up</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Saat tidak ditekan apa-apa, loncat=0, dan player tidak bergerak, maka aktor diset animasi ke diam.</comment>
+                <event-block sid="981947532343626">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is in touch" sid="607566723764414" type="Touch" />
+                        <condition id="-14" name="Compare variable" sid="917080993336184" type="System">
+                            <param id="0" name="Variable">loncat</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="936945985360180" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="843095885922194" type="aktor">
+                            <param id="0" name="Animation">&quot;diam&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

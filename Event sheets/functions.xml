@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>functions</name>
+    <events>
+        <comment>Fungsi awal , mengaitkan aktor pada player lalu menyiapkan GUI kontrol game, kemudian nyawa di set ke 4 dan poin aksara ke 0.</comment>
+        <event-block sid="972200235669632">
+            <conditions>
+                <condition id="0" name="On function" sid="734551542826490" type="Function">
+                    <param id="0" name="Name">&quot;awal&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="325627550917645" type="aktor">
+                    <param id="0" name="Pin to">player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-1" name="Set X" sid="338844634610951" type="T_pause">
+                    <param id="0" name="X">ViewportRight(Self.LayerNumber)-30</param>
+                </action>
+                <action behavior="Anchor" id="0" name="Set enabled" sid="579395058443442" type="T_pause">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="103212272784181" type="T_kiri">
+                    <param id="0" name="X">ViewportLeft(Self.LayerNumber) + 70</param>
+                    <param id="1" name="Y">ViewportBottom(Self.LayerNumber) - 70</param>
+                </action>
+                <action behavior="Anchor" id="0" name="Set enabled" sid="454653893529326" type="T_kiri">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="197761053822803" type="T_kanan">
+                    <param id="0" name="X">ViewportLeft(Self.LayerNumber) + 250</param>
+                    <param id="1" name="Y">ViewportBottom(Self.LayerNumber) - 70</param>
+                </action>
+                <action behavior="Anchor" id="0" name="Set enabled" sid="995483528139558" type="T_kanan">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="371641862694359" type="T_atas">
+                    <param id="0" name="X">ViewportRight(Self.LayerNumber) -150</param>
+                    <param id="1" name="Y">ViewportBottom(Self.LayerNumber) - 70</param>
+                </action>
+                <action behavior="Anchor" id="0" name="Set enabled" sid="498709264755814" type="T_atas">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="819597155463306" type="System">
+                    <param id="0" name="Variable">nyawa</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+                <action id="-9" name="Set value" sid="420947879293150" type="System">
+                    <param id="0" name="Variable">poin_player</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Fungsi pause, variabel timescale diset 0, touch 0, kemudian menyiapkan GUI pause dan memaikan sound klik</comment>
+        <event-block sid="543480930976896">
+            <conditions>
+                <condition id="0" name="On function" sid="606435014592136" type="Function">
+                    <param id="0" name="Name">&quot;pause&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="156565360347508" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="180576887091185" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="555465773407426" type="bg_paused">
+                    <param id="0" name="X">(ViewportLeft(Self.LayerNumber) + ViewportRight(Self.LayerNumber)) / 2</param>
+                    <param id="1" name="Y">(ViewportTop(Self.LayerNumber) + ViewportBottom(Self.LayerNumber)) / 2</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="200503923357624" type="T_menu">
+                    <param id="0" name="Object">bg_paused</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="678625597662932" type="T_restart">
+                    <param id="0" name="Object">bg_paused</param>
+                    <param id="1" name="Image point (optional)">2</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="535750337124516" type="T_resume">
+                    <param id="0" name="Object">bg_paused</param>
+                    <param id="1" name="Image point (optional)">3</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="330964222826565" type="bg_hitam">
+                    <param id="0" name="Object">T_restart</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="0" name="Play" sid="358275604170681" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Fungsi resume, variabel timescale diset 1, touch 1, kemudian menyiapkan GUI pause menghilang dan memaikan sound klik</comment>
+        <event-block sid="966087947291318">
+            <conditions>
+                <condition id="0" name="On function" sid="376984373361502" type="Function">
+                    <param id="0" name="Name">&quot;resume&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="685126632207995" type="System">
+                    <param id="0" name="Time scale">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="683490561440054" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="800334099977685" type="bg_paused">
+                    <param id="0" name="X">-10000</param>
+                    <param id="1" name="Y">-8500</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="460503357293320" type="T_menu">
+                    <param id="0" name="Object">bg_paused</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="138945980215034" type="T_restart">
+                    <param id="0" name="Object">bg_paused</param>
+                    <param id="1" name="Image point (optional)">2</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="731364402507657" type="T_resume">
+                    <param id="0" name="Object">bg_paused</param>
+                    <param id="1" name="Image point (optional)">3</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="657594559394454" type="bg_hitam">
+                    <param id="0" name="Object">T_restart</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="0" name="Play" sid="578732147499222" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Fungsi misigagal, variabel timescale diset 0, touch 0, kemudian menyiapkan GUI misigagal dan tombol pause dan aktor menghilang</comment>
+        <event-block sid="559821389733543">
+            <conditions>
+                <condition id="0" name="On function" sid="810530924066900" type="Function">
+                    <param id="0" name="Name">&quot;misigagal2&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="933810265523665" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="736069426981962" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="387182820532538" type="bg_misigagal">
+                    <param id="0" name="X">(ViewportLeft(Self.LayerNumber) + ViewportRight(Self.LayerNumber)) / 2</param>
+                    <param id="1" name="Y">(ViewportTop(Self.LayerNumber) + ViewportBottom(Self.LayerNumber)) / 2</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="104809525329691" type="T_restart">
+                    <param id="0" name="Object">bg_misigagal</param>
+                    <param id="1" name="Image point (optional)">3</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="766648905934453" type="bg_hitam">
+                    <param id="0" name="Object">bg_misigagal</param>
+                    <param id="1" name="Image point (optional)">2</param>
+                </action>
+                <action id="-9" name="Destroy" sid="355967479465326" type="T_pause" />
+                <action id="-9" name="Destroy" sid="696729781174530" type="aktor" />
+            </actions>
+        </event-block>
+        <event-block sid="239651886571699">
+            <conditions>
+                <condition id="0" name="On function" sid="850038403126290" type="Function">
+                    <param id="0" name="Name">&quot;misigagal&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="538700123173437" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="276833809781473" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="455060140927274" type="bg_misigagal">
+                    <param id="0" name="X">(ViewportLeft(Self.LayerNumber) + ViewportRight(Self.LayerNumber)) / 2</param>
+                    <param id="1" name="Y">(ViewportTop(Self.LayerNumber) + ViewportBottom(Self.LayerNumber)) / 2</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="768047306569314" type="T_menu">
+                    <param id="0" name="Object">bg_misigagal</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="192662255584675" type="T_restart">
+                    <param id="0" name="Object">bg_misigagal</param>
+                    <param id="1" name="Image point (optional)">3</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="838977474270203" type="bg_hitam">
+                    <param id="0" name="Object">bg_misigagal</param>
+                    <param id="1" name="Image point (optional)">2</param>
+                </action>
+                <action id="-9" name="Destroy" sid="976036144793246" type="T_pause" />
+                <action id="-9" name="Destroy" sid="923881481250291" type="aktor" />
+            </actions>
+        </event-block>
+        <comment>Fungsi misiberhasil, variabel timescale diset 0, touch 0, kemudian menyiapkan GUI misi berhasil dan tombol pause hilang</comment>
+        <event-block sid="157656168967732">
+            <conditions>
+                <condition id="0" name="On function" sid="496144235736036" type="Function">
+                    <param id="0" name="Name">&quot;misiberhasil&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="191621392274125" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="620925019733416" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="931161554612856" type="bg_misiberhasil">
+                    <param id="0" name="X">(ViewportLeft(Self.LayerNumber) + ViewportRight(Self.LayerNumber)) / 2</param>
+                    <param id="1" name="Y">(ViewportTop(Self.LayerNumber) + ViewportBottom(Self.LayerNumber)) / 2</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="417089653593043" type="T_menu">
+                    <param id="0" name="Object">bg_misiberhasil</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="583022132125419" type="T_nextlv">
+                    <param id="0" name="Object">bg_misiberhasil</param>
+                    <param id="1" name="Image point (optional)">3</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="463469470163394" type="bg_hitam">
+                    <param id="0" name="Object">bg_misiberhasil</param>
+                    <param id="1" name="Image point (optional)">2</param>
+                </action>
+                <action id="-9" name="Destroy" sid="606065819710260" type="T_pause" />
+            </actions>
+        </event-block>
+        <comment>Jika ditekan tombol restart, maka layout jalankan ulang kemudian timescale diset 1, variabel di set ke default dan memaikan sound klik</comment>
+        <event-block sid="252307496904834">
+            <conditions>
+                <condition id="3" name="On touched object" sid="854756627979430" type="Touch">
+                    <param id="0" name="Object">T_restart</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="101394722265291" type="System" />
+                <action id="-13" name="Set time scale" sid="708061277345830" type="System">
+                    <param id="0" name="Time scale">1</param>
+                </action>
+                <action id="-21" name="Reset global variables" sid="829909087912546" type="System" />
+                <action id="0" name="Play" sid="974930535526481" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika ditekan tombol menu, maka touch dan time scale di set 1, kemudian memaikan sound klik dan menuju layout menu</comment>
+        <event-block sid="506731936968509">
+            <conditions>
+                <condition id="3" name="On touched object" sid="140554270636310" type="Touch">
+                    <param id="0" name="Object">T_menu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="982380977489385" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="407918719390530" type="System">
+                    <param id="0" name="Time scale">1</param>
+                </action>
+                <action id="0" name="Play" sid="823161009867634" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="575608573456095" type="System">
+                    <param id="0" name="Layout">menu</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

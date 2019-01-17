@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>unisbank</name>
+    <events>
+        <comment>Saat layout dijalankan tampil gambar unisbank, nama mahasiswa, progdi</comment>
+        <event-block sid="652236961290482">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="928154562206557" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="482238410657806" type="BG_unisbank">
+                    <param id="0" name="X">(ViewportLeft(Self.LayerNumber) + ViewportRight(Self.LayerNumber)) / 2</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Saat layout selesai dimuat, 7 detik kemudian akan menuju layout splashscreen</comment>
+        <event-block sid="430877312129135">
+            <conditions>
+                <condition id="-25" name="On loader layout complete" sid="649473798532602" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="583453005205708" type="System">
+                    <param id="0" name="Seconds">7</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="623594627772304" type="System">
+                    <param id="0" name="Layout">menu</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

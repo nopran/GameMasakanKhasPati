@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>menu</name>
+    <events>
+        <comment>Saat layout dijalankan set posisi  tombol ke tengah, kemudian melakukan preload sound dan aktor dikaitkan pada player.</comment>
+        <event-block sid="889257311601449">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="344621314803332" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="870382855276780" type="T_Bermain">
+                    <param id="0" name="X">ViewportRight(Self.LayerNumber) - 500</param>
+                    <param id="1" name="Y">(ViewportTop(Self.LayerNumber) + ViewportBottom(Self.LayerNumber)) / 2-40</param>
+                </action>
+                <action id="4" name="Preload" sid="786346096861799" type="Audio">
+                    <param id="0" name="Audio file">musicmenu</param>
+                </action>
+                <action id="0" name="Play" sid="145537854961666" type="Audio">
+                    <param id="0" name="Audio file">musicmenu</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;musicmenu&quot;</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="721153227683574" type="aktor">
+                    <param id="0" name="Pin to">player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika ditekan tombol bermain akan menuju ke layout pillevel dan memainkan sound klik</comment>
+        <event-block sid="305935370073089">
+            <conditions>
+                <condition id="3" name="On touched object" sid="441743949966745" type="Touch">
+                    <param id="0" name="Object">t_mulai</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="831709530733797" type="System">
+                    <param id="0" name="Layout">pillevel</param>
+                </action>
+                <action id="0" name="Play" sid="309525259074579" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika ditekan tombol aksara akan menuju ke layout aksara dan memainkan sound klik</comment>
+        <event-block sid="594312719085926">
+            <conditions>
+                <condition id="3" name="On touched object" sid="171738186158334" type="Touch">
+                    <param id="0" name="Object">t_petunjuk</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="622956561884960" type="System">
+                    <param id="0" name="Layout">petunjuk</param>
+                </action>
+                <action id="0" name="Play" sid="314279848749490" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika meninggalkan layout maka sound mainmenu di stop</comment>
+        <event-block sid="138368704780248">
+            <conditions>
+                <condition id="-3" name="On end of layout" sid="857995270709995" type="System" />
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="365898692413403" type="Audio">
+                    <param id="0" name="Tag">&quot;musicmenu&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

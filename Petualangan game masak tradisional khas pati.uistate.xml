@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="0">splashscreen</layout>
+        <layout order="3">menu</layout>
+        <layout order="4">pillevel</layout>
+        <layout order="5">intro_level1</layout>
+        <layout order="6">petunjuk</layout>
+        <layout order="7">level1</layout>
+        <layout order="8">level2</layout>
+        <layout order="9">level3</layout>
+        <layout order="17">selesai</layout>
+        <layout active="1" order="21">unisbank</layout>
+        <layout order="25">intro_level2</layout>
+        <layout order="26">intro_level3</layout>
+        <event-sheet order="1">intro_level1</event-sheet>
+        <event-sheet order="2">splashscreen</event-sheet>
+        <event-sheet order="10">menu</event-sheet>
+        <event-sheet order="11">pillevel</event-sheet>
+        <event-sheet order="12">variabel</event-sheet>
+        <event-sheet order="13">selesai</event-sheet>
+        <event-sheet order="14">petunjuk</event-sheet>
+        <event-sheet order="15">functions</event-sheet>
+        <event-sheet order="16">misi_game</event-sheet>
+        <event-sheet order="18">level1</event-sheet>
+        <event-sheet order="19">level2</event-sheet>
+        <event-sheet order="20">level3</event-sheet>
+        <event-sheet order="22">unisbank</event-sheet>
+        <event-sheet order="23">intro_level2</event-sheet>
+        <event-sheet order="24">intro_level3</event-sheet>
+        <event-sheet order="27">kontrol</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="1" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="object-folder/Background/" />
+        <folder expanded="1" path="object-folder/Tombol/" />
+        <folder expanded="1" path="object-folder/Musuh/" />
+        <folder expanded="1" path="object-folder/Player/" />
+        <folder expanded="1" path="object-folder/Pijakan/" />
+        <folder expanded="1" path="object-folder/UI/" />
+        <folder expanded="1" path="object-folder/Poin/" />
+        <folder expanded="1" path="object-folder/Teks/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="0" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/BG_menu/" />
+        <folder expanded="1" path="animation-folder/bg_paused/" />
+        <folder expanded="1" path="animation-folder/bg_pillevel/" />
+        <folder expanded="1" path="animation-folder/BG_splash/" />
+        <folder expanded="1" path="animation-folder/bg_hitam/" />
+        <folder expanded="1" path="animation-folder/bg_gelembung/" />
+        <folder expanded="1" path="animation-folder/Bg_tnh/" />
+        <folder expanded="1" path="animation-folder/pohon/" />
+        <folder expanded="1" path="animation-folder/info_next/" />
+        <folder expanded="1" path="animation-folder/pohon_kering/" />
+        <folder expanded="1" path="animation-folder/rmpt/" />
+        <folder expanded="1" path="animation-folder/semak_semak/" />
+        <folder expanded="1" path="animation-folder/air/" />
+        <folder expanded="1" path="animation-folder/garis_batas/" />
+        <folder expanded="1" path="animation-folder/bg_misigagal/" />
+        <folder expanded="1" path="animation-folder/bg_misiberhasil/" />
+        <folder expanded="1" path="animation-folder/kayu/" />
+        <folder expanded="1" path="animation-folder/kayu2/" />
+        <folder expanded="1" path="animation-folder/kayu3/" />
+        <folder expanded="1" path="animation-folder/BG_unisbank/" />
+        <folder expanded="1" path="animation-folder/Sprite5/" />
+        <folder expanded="1" path="animation-folder/T_atas/" />
+        <folder expanded="1" path="animation-folder/T_kanan/" />
+        <folder expanded="1" path="animation-folder/T_kiri/" />
+        <folder expanded="1" path="animation-folder/T_kunci/" />
+        <folder expanded="1" path="animation-folder/T_menu/" />
+        <folder expanded="1" path="animation-folder/T_lv1/" />
+        <folder expanded="1" path="animation-folder/T_lv2/" />
+        <folder expanded="1" path="animation-folder/T_pause/" />
+        <folder expanded="1" path="animation-folder/T_restart/" />
+        <folder expanded="1" path="animation-folder/T_lv3/" />
+        <folder expanded="1" path="animation-folder/T_resume/" />
+        <folder expanded="1" path="animation-folder/T_Bermain/" />
+        <folder expanded="1" path="animation-folder/T_next/" />
+        <folder expanded="1" path="animation-folder/T_prev/" />
+        <folder expanded="1" path="animation-folder/T_nextlv/" />
+        <folder expanded="1" path="animation-folder/M_ayam/" />
+        <folder expanded="1" path="animation-folder/M_boneka/" />
+        <folder expanded="1" path="animation-folder/bola_duri/" />
+        <folder expanded="1" path="animation-folder/gergaji_bundar/" />
+        <folder expanded="1" path="animation-folder/bolajarum/" />
+        <folder expanded="1" path="animation-folder/bom/" />
+        <folder expanded="1" path="animation-folder/api/" />
+        <folder expanded="1" path="animation-folder/batas_m_ayam/" />
+        <folder expanded="1" path="animation-folder/player/" />
+        <folder expanded="1" path="animation-folder/aktor/" />
+        <folder expanded="1" path="animation-folder/camera/" />
+        <folder expanded="1" path="animation-folder/tnhpanjang/" />
+        <folder expanded="1" path="animation-folder/tnhpijakan/" />
+        <folder expanded="1" path="animation-folder/kotak_coklat/" />
+        <folder expanded="1" path="animation-folder/kotak_ijo/" />
+        <folder expanded="1" path="animation-folder/box/" />
+        <folder expanded="1" path="animation-folder/nyawa/" />
+        <folder expanded="1" path="animation-folder/u_ayam/" />
+        <folder expanded="1" path="animation-folder/u_telur/" />
+        <folder expanded="1" path="animation-folder/u_kecap/" />
+        <folder expanded="1" path="animation-folder/u_lengkuas2/" />
+        <folder expanded="1" path="animation-folder/u_lada1/" />
+        <folder expanded="1" path="animation-folder/u_nasigandul/" />
+        <folder expanded="1" path="animation-folder/u_kecap2/" />
+        <folder expanded="1" path="animation-folder/u_lengkuas1/" />
+        <folder expanded="1" path="animation-folder/u_ayam2/" />
+        <folder expanded="1" path="animation-folder/u_sotokemiri/" />
+        <folder expanded="1" path="animation-folder/u_tha/" />
+        <folder expanded="1" path="animation-folder/u_lada2/" />
+        <folder expanded="1" path="animation-folder/u_lada3/" />
+        <folder expanded="1" path="animation-folder/u_bawang/" />
+        <folder expanded="1" path="animation-folder/u_ikan/" />
+        <folder expanded="1" path="animation-folder/p_ayam1/" />
+        <folder expanded="1" path="animation-folder/p_telur/" />
+        <folder expanded="1" path="animation-folder/p_sotokemiri/" />
+        <folder expanded="1" path="animation-folder/p_kecap1/" />
+        <folder expanded="1" path="animation-folder/p_ikan/" />
+        <folder expanded="1" path="animation-folder/p_nasigandul/" />
+        <folder expanded="1" path="animation-folder/p_bawang1/" />
+        <folder expanded="1" path="animation-folder/p_lengkuas1/" />
+        <folder expanded="1" path="animation-folder/p_kecap/" />
+        <folder expanded="1" path="animation-folder/p_ayam2/" />
+        <folder expanded="1" path="animation-folder/p_lada2/" />
+        <folder expanded="1" path="animation-folder/p_lada1/" />
+        <folder expanded="1" path="animation-folder/p_kepalamanyung/" />
+        <folder expanded="1" path="animation-folder/p_lada3/" />
+        <folder expanded="1" path="animation-folder/peti_harta/" />
+        <folder expanded="1" path="animation-folder/kunci/" />
+        <folder expanded="1" path="animation-folder/tambah_nyawa/" />
+        <folder expanded="1" path="animation-folder/p_lengkuas2/" />
+        <folder expanded="1" path="animation-folder/papan_nextlv/" />
+        <folder expanded="1" path="animation-folder/t_petualangan/" />
+        <folder expanded="1" path="animation-folder/selesai/" />
+        <folder expanded="1" path="animation-folder/t_splash/" />
+        <folder expanded="1" path="animation-folder/text_intro/" />
+        <folder expanded="1" path="animation-folder/efekapi/" />
+        <folder expanded="1" path="animation-folder/Sprite/" />
+        <folder expanded="1" path="animation-folder/Sprite2/" />
+        <folder expanded="1" path="animation-folder/Sprite3/" />
+        <folder expanded="1" path="animation-folder/t_mulai/" />
+        <folder expanded="1" path="animation-folder/t_petunjuk/" />
+        <folder expanded="1" path="animation-folder/Sprite4/" />
+        <folder expanded="1" path="animation-folder/Sprite6/" />
+        <folder expanded="1" path="animation-folder/Sprite7/" />
+        <folder expanded="1" path="animation-folder/Sprite8/" />
+        <folder expanded="1" path="animation-folder/Sprite9/" />
+        <folder expanded="1" path="animation-folder/Sprite10/" />
+        <folder expanded="1" path="animation-folder/Sprite11/" />
+    </folders-expanded>
+</c2uistate>

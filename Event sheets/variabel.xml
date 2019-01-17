@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>variabel</name>
+    <events>
+        <variable constant="0" name="poin_player" sid="733456022457635" static="0" type="number">0</variable>
+        <variable constant="0" name="Level" sid="536322359270790" static="0" type="number">0</variable>
+        <variable constant="0" name="kunci" sid="339843609832150" static="0" type="number">0</variable>
+        <variable constant="0" name="loncat" sid="936841282082034" static="0" type="number">0</variable>
+        <variable constant="0" name="nyawa" sid="689976543404312" static="0" type="number">4</variable>
+        <variable constant="0" name="touch" sid="440485549630379" static="0" type="number">1</variable>
+    </events>
+</c2eventsheet>

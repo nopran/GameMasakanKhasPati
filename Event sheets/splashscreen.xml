@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>splashscreen</name>
+    <events>
+        <comment>Saat layout dijalankan tampil gambar splashscreen, posisi teks game di tengah dan melakukan preload sound game. 7 detik kemudian akan menuju layout menu.</comment>
+        <event-block sid="492409119485319">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="832454050949794" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="275647573364061" type="t_splash">
+                    <param id="0" name="X">(ViewportLeft(Self.LayerNumber) + ViewportRight(Self.LayerNumber)) / 2</param>
+                </action>
+                <action id="4" name="Preload" sid="470686069841110" type="Audio">
+                    <param id="0" name="Audio file">bom</param>
+                </action>
+                <action id="4" name="Preload" sid="168357413916665" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                </action>
+                <action id="4" name="Preload" sid="367912383888875" type="Audio">
+                    <param id="0" name="Audio file">poin</param>
+                </action>
+                <action id="4" name="Preload" sid="194540040923756" type="Audio">
+                    <param id="0" name="Audio file">up</param>
+                </action>
+                <action id="4" name="Preload" sid="394648401647950" type="Audio">
+                    <param id="0" name="Audio file">oww</param>
+                </action>
+                <action id="4" name="Preload" sid="573286587789520" type="Audio">
+                    <param id="0" name="Audio file">level1</param>
+                </action>
+                <action id="4" name="Preload" sid="847675208315686" type="Audio">
+                    <param id="0" name="Audio file">level2</param>
+                </action>
+                <action id="4" name="Preload" sid="579738120931562" type="Audio">
+                    <param id="0" name="Audio file">level3</param>
+                </action>
+                <action id="4" name="Preload" sid="721554285644896" type="Audio">
+                    <param id="0" name="Audio file">mainmenu</param>
+                </action>
+                <action id="4" name="Preload" sid="280820576366972" type="Audio">
+                    <param id="0" name="Audio file">pilihlevel</param>
+                </action>
+                <action id="-16" name="Wait" sid="486558602979956" type="System">
+                    <param id="0" name="Seconds">7</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="545581903704079" type="System">
+                    <param id="0" name="Layout">menu</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

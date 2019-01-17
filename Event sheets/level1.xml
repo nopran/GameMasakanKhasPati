@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>level1</name>
+    <events>
+        <include>misi_game</include>
+        <include>kontrol</include>
+        <include>functions</include>
+        <comment>Saat layout dijalankan, maka Level diset 1 , scrolto diaktifkan, kemudian memanggil fungsi awal dan melakukan preload sound dan memainkan sound level1</comment>
+        <event-block sid="764356153298618">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="479163434703646" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="857332068225861" type="System">
+                    <param id="0" name="Variable">Level</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="511210291148380" type="aktor">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="0" name="Call function" sid="429477100946135" type="Function">
+                    <param id="0" name="Name">&quot;awal&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="4" name="Preload" sid="367239367369562" type="Audio">
+                    <param id="0" name="Audio file">level1</param>
+                </action>
+                <action id="0" name="Play" sid="199467641203449" type="Audio">
+                    <param id="0" name="Audio file">level1</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;level1&quot;</param>
+                </action>
+                <action id="4" name="Preload" sid="432561900066838" type="Audio">
+                    <param id="0" name="Audio file">bom</param>
+                </action>
+                <action id="4" name="Preload" sid="789621298266396" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                </action>
+                <action id="4" name="Preload" sid="866146216806107" type="Audio">
+                    <param id="0" name="Audio file">poin</param>
+                </action>
+                <action id="4" name="Preload" sid="535864831633957" type="Audio">
+                    <param id="0" name="Audio file">up</param>
+                </action>
+                <action id="4" name="Preload" sid="670975254863615" type="Audio">
+                    <param id="0" name="Audio file">oww</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika T_pause ditekan, maka memanggil fungsi pause dan memause sound level1</comment>
+        <event-block sid="283536371667860">
+            <conditions>
+                <condition id="3" name="On touched object" sid="852042689361150" type="Touch">
+                    <param id="0" name="Object">T_pause</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="611286064160331" type="Function">
+                    <param id="0" name="Name">&quot;pause&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="22" name="Set paused" sid="511688847831705" type="Audio">
+                    <param id="0" name="Tag">&quot;level1&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika T_resume ditekan, maka memanggil fungsi resume dan meresume sound level1</comment>
+        <event-block sid="490388635444085">
+            <conditions>
+                <condition id="3" name="On touched object" sid="851199577753342" type="Touch">
+                    <param id="0" name="Object">T_resume</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="737771703151950" type="Function">
+                    <param id="0" name="Name">&quot;resume&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="22" name="Set paused" sid="725645801846532" type="Audio">
+                    <param id="0" name="Tag">&quot;level1&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika poin_aksara =100 , maka papan_nextlv diset frame 1</comment>
+        <event-block sid="155564961538599">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="260894362290732" type="System">
+                    <param id="0" name="Variable">poin_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="458513292932647" type="papan_nextlv">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika aktor bertabrakan dengan papan_nextlv</comment>
+        <event-block sid="756813795222743">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="111678449784245" type="aktor">
+                    <param id="0" name="Object">papan_nextlv</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Jika poin_aksara =100 , maka sound level 1 berhenti dan memanggil fungsi misisberhasil</comment>
+                <event-block sid="479895417158998">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="894183906027181" type="System">
+                            <param id="0" name="Variable">poin_player</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Stop" sid="932251463260830" type="Audio">
+                            <param id="0" name="Tag">&quot;level1&quot;</param>
+                        </action>
+                        <action id="0" name="Call function" sid="905521399180291" type="Function">
+                            <param id="0" name="Name">&quot;misiberhasil&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Jika T_nextlv ditekan, maka memaikan sound klik dan menuju layout intro_level2, timescale diset 1 dan touch =1</comment>
+        <event-block sid="179134295596458">
+            <conditions>
+                <condition id="3" name="On touched object" sid="955673973026269" type="Touch">
+                    <param id="0" name="Object">T_nextlv</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="311994850003039" type="Audio">
+                    <param id="0" name="Audio file">klik</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="413458357914021" type="System">
+                    <param id="0" name="Layout">intro_level2</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="117941567091964" type="System">
+                    <param id="0" name="Time scale">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="279104849662728" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

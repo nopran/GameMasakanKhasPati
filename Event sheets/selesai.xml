@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>selesai</name>
+    <events>
+        <comment>Saat layout dijalankan tombol menu dikaitkan pada selesai dan di set set posisi x dan y center ke tengah</comment>
+        <event-block sid="278633388633649">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="555435561194526" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="876922494787122" type="T_menu">
+                    <param id="0" name="Pin to">selesai</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="512770721589331" type="selesai">
+                    <param id="0" name="X">(ViewportLeft(Self.LayerNumber) + ViewportRight(Self.LayerNumber)) / 2</param>
+                    <param id="1" name="Y">(ViewportTop(Self.LayerNumber) + ViewportBottom(Self.LayerNumber)) / 2</param>
+                </action>
+                <action id="0" name="Play" sid="148860808955994" type="Audio">
+                    <param id="0" name="Audio file">selesai</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;selesai&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika ditekan tombol menu akan menuju ke layout menu</comment>
+        <event-block sid="570062556159032">
+            <conditions>
+                <condition id="3" name="On touched object" sid="747136282010144" type="Touch">
+                    <param id="0" name="Object">T_menu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="328866961187736" type="System">
+                    <param id="0" name="Layout">menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Jika meninggalkan layout maka sound di stop</comment>
+        <event-block sid="575542167637189">
+            <conditions>
+                <condition id="-3" name="On end of layout" sid="396722959856450" type="System" />
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="122812909124883" type="Audio">
+                    <param id="0" name="Tag">&quot;selesai&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
